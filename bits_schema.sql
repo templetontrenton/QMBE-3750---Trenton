@@ -27,6 +27,7 @@ WHERE Consultant.FirstName = 'Christopher' AND Consultant.LastName = 'Turner';
 #Question 11
 # Some things that BITS could add is E-mail, Phone Numbers, Preferred Contact Method, Notification Opt-In, Time Zone to the table to help better assist their customers. 
 
+# Graded: 15/15.
 
 CREATE TABLE Consultant (
     ConsltNum CHAR(2) PRIMARY KEY,

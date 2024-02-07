@@ -32,6 +32,9 @@ HAVING COUNT(customernum)>1);
 #Primary Keys is a field or a set of fields in a database table that uniquely identifies each record in that table.
 # TripID, CustomerNum, GuideNum
 
+
+# Graded: 15/15.
+
 CREATE TABLE Guide
 (GuideNum CHAR(4) PRIMARY KEY,
 LastName CHAR(15),

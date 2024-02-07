@@ -33,6 +33,8 @@ WHERE Patient.FirstName = 'Joseph' AND Patient.LastName = 'Baptist';
 # I would add a new field named 'HourlyRate' in the 'Therapist' table. For other effective payroll use
 # Employee ID, Tax ID, Employment Status, etc. 
 
+# Graded: 15/15.
+
 CREATE TABLE Patient (
     PatientNum CHAR(4) PRIMARY KEY,
     LastName CHAR(15),
