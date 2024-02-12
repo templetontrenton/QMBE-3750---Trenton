@@ -3,25 +3,17 @@ USE SPORTS;
 SHOW TABLES; 
 
 #Question 4
-SELECT DISTINCT Therapies.Description
+SELECT Description
 FROM Therapies
-JOIN Session ON Therapies.TherapyCode = Session.TherapyCode
-JOIN Therapist ON Session.TherapistID = Therapist.TherapistID
-WHERE Therapist.FirstName = 'Steven' AND Therapist.LastName = 'Wilder';
+WHERE therapycode IN (SELECT therapycode FROM session WHERE theraoistid = 'SW124');
 
 
 #Question 6
-USE Sports;
-
-SELECT Therapist.FirstName, Therapist.LastName
+SELECT firstname, lastname
 FROM Therapist
-JOIN Session ON Therapist.TherapistID = Session.TherapistID
-JOIN Patient ON Session.PatientNum = Patient.PatientNum
-WHERE Patient.FirstName = 'Ben' AND Patient.LastName = 'Odepaul';
+WHERE TherapistID = (SELECT ThereapistID FROM session Where patientNum = 1014);
 
 #Question 8
-USE Sports;
-
 SELECT DISTINCT Therapies.Description
 FROM Therapies
 JOIN Session ON Therapies.TherapyCode = Session.TherapyCode
