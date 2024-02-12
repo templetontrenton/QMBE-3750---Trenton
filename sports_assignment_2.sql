@@ -1,31 +1,37 @@
-USE SPORTS;
+# Question 3
+SELECT LastName, FirstName
+FROM Therapist
+WHERE City = 'Palm Rivers';
 
-SHOW TABLES; 
+# Question 4
+SELECT LastName, FirstName
+FROM Therapist
+WHERE City != 'Palm Rivers';
 
-#Question 4
+# Question 5
+SELECT PatientNum, FirstName, LastName
+FROM Patient
+WHERE Balance >= 3000.00;
+
+# Question 11
+SELECT PatientNum, LastName
+FROM Patient
+WHERE City IN ('Palm Rivers', 'Waterville', 'Munster');
+
+# Question 21
+SELECT PatientNum, LastName
+FROM Patient
+WHERE City = 'Palm Rivers' OR City = 'Waterville' OR City = 'Munster';
+
+# Question 22
 SELECT Description
 FROM Therapies
-WHERE therapycode IN (SELECT therapycode FROM session WHERE theraoistid = 'SW124');
+WHERE Description LIKE '%training%';
 
 
-#Question 6
-SELECT firstname, lastname
-FROM Therapist
-WHERE TherapistID = (SELECT ThereapistID FROM session Where patientNum = 1014);
 
-#Question 8
-SELECT DISTINCT Therapies.Description
-FROM Therapies
-JOIN Session ON Therapies.TherapyCode = Session.TherapyCode
-JOIN Therapist ON Session.TherapistID = Therapist.TherapistID
-JOIN Patient ON Session.PatientNum = Patient.PatientNum
-WHERE Patient.FirstName = 'Joseph' AND Patient.LastName = 'Baptist';
 
-#Question 10
-# I would add a new field named 'HourlyRate' in the 'Therapist' table. For other effective payroll use
-# Employee ID, Tax ID, Employment Status, etc. 
-
-# Graded: 15/15.
+SHOW Tables;
 
 CREATE TABLE Patient (
     PatientNum CHAR(4) PRIMARY KEY,
@@ -42,16 +48,17 @@ CREATE TABLE Session (
     SessionNum CHAR(3) PRIMARY KEY,
     SessionDate DATE,
     PatientNum CHAR(4),
-    LengthOfSession INT(3),
+    LengthOfSession INT,
     TherapistID CHAR(5),
-    TherapyCode INT(5)
+    TherapyCode INT
 );
 
 CREATE TABLE Therapies (
-    TherapyCode INT(5) PRIMARY KEY,
+    TherapyCode INT PRIMARY KEY,
     Description CHAR(255),
-    UnitOfTime INT(3)
+    UnitOfTime INT
 );
+
 
 CREATE TABLE Therapist (
     TherapistID CHAR(5) PRIMARY KEY,
@@ -307,4 +314,3 @@ INSERT INTO Therapist
 VALUES
 ('SW124','Wilder','Steven','7354 Rockville Road','San Vista','TX','72510')
 ;
-
